@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Anwesha Sahoo</title>
+
+  <!-- External stylesheet: all layout + styling lives here, none inline -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- 
+    PAGE WRAPPER
+    This is the flex container that creates the two-column layout:
+    navigation on the left, content on the right.
+    See .page-wrapper in styles.css for the flexbox rules.
+  -->
+  <div class="page-wrapper">
+
+    <!-- ============ NAVIGATION ============ -->
+    <nav class="site-nav">
+      <div class="nav-brand">
+        <span class="nav-initials">AS</span>
+        <p class="nav-name">Anwesha Sahoo</p>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-footer">
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </nav>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <main class="site-content">
+
+      <header class="content-header">
+        <h1>About Me</h1>
+        <p class="subtitle">Computer Science student · Georgia State University</p>
+      </header>
+
+      <section class="content-section">
+        <h2>Who I am</h2>
+        <p>
+          I'm a Computer Science undergraduate at Georgia State University,
+          expecting to graduate in May 2027. My work sits at the intersection
+          of software engineering and health data — I'm especially interested
+          in how AI and machine learning can be applied responsibly inside
+          healthcare systems.
+        </p>
+      </section>
+
+      <section class="content-section">
+        <h2>Experience</h2>
+        <div class="experience-card">
+          <h3>Software Quality Engineering Intern</h3>
+          <p class="meta">Vaccine Genie · Remote</p>
+          <p>Working on quality engineering for health-tech software systems.</p>
+        </div>
+
+        <div class="experience-card">
+          <h3>Undergraduate Research Assistant</h3>
+          <p class="meta">Georgia State University</p>
+          <p>Analyzed neuroimaging data as part of ongoing research work.</p>
+        </div>
+
+        <div class="experience-card">
+          <h3>Clinical Records Automation</h3>
+          <p class="meta">Kalinga Institute of Medical Science</p>
+          <p>Built Python and Excel-based automation to streamline clinical record handling.</p>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>What I'm building toward</h2>
+        <p>
+          I'm working toward a career applying AI/ML to real problems in
+          health tech — combining the rigor of my CS coursework with
+          hands-on research and industry experience.
+        </p>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
