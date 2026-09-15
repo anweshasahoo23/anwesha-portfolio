@@ -1,0 +1,223 @@
+/* ==========================================================================
+   GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding/border included in element width, not added on top */
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1f2933;
+  background-color: #f7f8fa;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ==========================================================================
+   PAGE LAYOUT — FLEXBOX
+   This is the core of the assignment: .page-wrapper is a flex container
+   with two children, .site-nav and .site-content. Setting display:flex
+   arranges them side by side (row direction is the default), which gives
+   us a persistent left-hand navigation column next to a scrollable
+   main-content column, without floats or manual positioning.
+   ========================================================================== */
+
+.page-wrapper {
+  display: flex;              /* turns this element into a flex container */
+  flex-direction: row;        /* children sit side by side (this is the default, written explicitly for clarity) */
+  min-height: 100vh;          /* wrapper always fills at least the full viewport height */
+}
+
+
+/* ---------- NAVIGATION (flex item #1) ---------- */
+
+.site-nav {
+  flex: 0 0 240px;            /* flex-grow:0, flex-shrink:0, flex-basis:240px -> fixed-width sidebar */
+  background-color: #10243e;  /* dark navy, distinct from the content area */
+  color: #e7edf5;
+  display: flex;               /* nav itself is ALSO a flex container */
+  flex-direction: column;      /* stacks its own children vertically: brand, links, footer */
+  justify-content: space-between; /* pushes nav-footer to the bottom of the sidebar */
+  padding: 2rem 1.5rem;
+  position: sticky;            /* nav stays in view while the content column scrolls */
+  top: 0;
+  height: 100vh;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.nav-initials {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #3a6ea5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.nav-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-links li a {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #c7d3e0;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  background-color: #1b3a5c;
+  color: #ffffff;
+}
+
+.nav-links li a.active {
+  background-color: #3a6ea5;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.nav-footer {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.nav-footer a {
+  color: #9fb3c8;
+}
+
+.nav-footer a:hover {
+  color: #ffffff;
+}
+
+
+/* ---------- MAIN CONTENT (flex item #2) ---------- */
+
+.site-content {
+  flex: 1 1 auto;              /* grows to fill all remaining horizontal space beside the sidebar */
+  padding: 3rem 4rem;
+  max-width: 900px;            /* keeps line lengths readable on wide screens */
+}
+
+.content-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #d8dee6;
+  padding-bottom: 1.5rem;
+}
+
+.content-header h1 {
+  font-size: 2.2rem;
+  color: #10243e;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  color: #5b6b7c;
+  font-size: 1rem;
+}
+
+.content-section {
+  margin-bottom: 2.5rem;
+}
+
+.content-section h2 {
+  font-size: 1.3rem;
+  color: #10243e;
+  margin-bottom: 0.9rem;
+}
+
+.content-section p {
+  color: #33414f;
+}
+
+
+/* ---------- EXPERIENCE CARDS ---------- 
+   These use flexbox too, but in a smaller, self-contained way: each
+   card lays its own text out in a simple vertical stack.            */
+
+.experience-card {
+  background-color: #ffffff;
+  border: 1px solid #e1e6eb;
+  border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.experience-card h3 {
+  font-size: 1.05rem;
+  color: #10243e;
+}
+
+.experience-card .meta {
+  font-size: 0.85rem;
+  color: #6b7a89;
+  font-style: italic;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE BEHAVIOR
+   Below 768px, stack the nav above the content instead of side-by-side —
+   just one line change (flex-direction) because the layout is flexbox.
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    flex-direction: column;
+  }
+
+  .site-nav {
+    flex: none;
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 0.25rem;
+  }
+
+  .nav-footer {
+    display: none; /* hide secondary links on small screens to save space */
+  }
+
+  .site-content {
+    padding: 2rem;
+  }
+}
